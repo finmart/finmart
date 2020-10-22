@@ -8,21 +8,92 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <title>ITDEV.win</title>
+    <title>แก้ไขข้อมูล FINMART</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Prompt&display=swap">
   </head>
-  <body>
+  <body style="background-color:#04205F;">
+    
     <center>
-    <h1>Register</h1>
-<p>TEST</p>
+     <img src="https://www.img.in.th/images/74ecf95373df1a18635de315f981a766.png" style=" width: 267px;
+height: 31px;
+margin-top:40px">
+    
 
-<p>ชื่อ</p><input type="text" id="fn" />
-<p>Last Name</p><input type="text" id="ln" />
-<p>NickName</p><input type="text" id="nn" />
-<p>Tel</p><input type="tel" id="tel" />
-</br></br>
-<button type="button" class="btn btn-success" onclick="reg()">ลงทะเบียน</button>
+<p style="
+font-family: 'Prompt', sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 6px;
+/* identical to box height */
+text-align: center;
+color: #FFFFFF;
+margin-top:26px;">ชื่อ-นามสกุล</p><input type="text" id="fn" style="
+width: 265px;
+height: 32px;
+background: #FFFFFF;
+border-radius: 6px;" />
+<p style="
+font-family: 'Prompt', sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 6px;
+/* identical to box height */
+text-align: center;
+color: #FFFFFF;margin-top:22px;">ที่อยู่หลัก</p><input type="text" id="ln" style="
+width: 265px;
+height: 32px;
+background: #FFFFFF;
+border-radius: 6px;" />
+<p style="
+font-family: 'Prompt', sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 6px;
+/* identical to box height */
+text-align: center;
+color: #FFFFFF;margin-top:22px;">เบอร์โทรศัพท์</p><input type="tel" id="nn" style="
+width: 265px;
+height: 32px;
+background: #FFFFFF;
+border-radius: 6px;"/>
+<p style="
+font-family: 'Prompt', sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 6px;
+/* identical to box height */
+text-align: center;
+color: #FFFFFF;margin-top:22px;">อีเมล</p><input type="text" id="tel" style="
+width: 265px;
+height: 32px;
+background: #FFFFFF;
+border-radius: 6px;"/>
+</br>
+<button type="button" class="btn btn-success" onclick="reg()" style="
+width: 150px;
+height: 48px;
+background: #ECFF4B;
+border-radius: 5px;
+ font-family: 'Prompt', sans-serif;
+font-style: normal;
+font-weight: bold;
+font-size: 20px;
+text-align: center;
+color: #04205F;margin-top:26px">ยืนยัน</button>
 
-<p id="demo"></p>
+<p id="demo" style="
+font-family: 'Prompt', sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 2px;
+/* identical to box height */
+text-align: center;
+color: #FFFFFF;margin-top:20px;"></p>
 </center>
 
 <script>
@@ -52,15 +123,23 @@ var tel = document.getElementById("tel").value;
             var dis = profile.displayName;
             var pic = profile.pictureUrl;
         var xos = liff.getOS();
-  x.innerHTML = " กำลังลงทะเบียน... ";
+  x.innerHTML = " กำลังแก้ไขข้อมูล... ";
 var xmlhttp = new XMLHttpRequest();
-        var theUrl = "https://script.google.com/macros/s/AKfycbwkSB2vOO8NXaVDPOUctnxKr75WcoEOM7aaY1GRlZs_IzG9KQw/exec?fn="+fn+"&ln="+ln+"&nn="+nn+"&tel="+tel+"&uid="+uid+"&dis="+dis+"&pic="+pic;
+        var theUrl = "https://script.google.com/macros/s/AKfycbzqeZIMqIYjdTYnb3U9WldfnJ2vhCBIuCfL7SWkte8z1weHmhn6/exec?fn="+fn+"&ln="+ln+"&nn="+nn+"&tel="+tel+"&uid="+uid+"&dis="+dis+"&pic="+pic;
         xmlhttp.open('GET', theUrl);
         xmlhttp.send();
             xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var jsonResponse = JSON.parse(this.responseText);
+          liff.sendMessages([
+          {
+               "type":"text",
+               "text":"แก้ไขข้อมูลเรียบร้อย"
+          }
+          
+          ])
         }
+        
         alert(jsonResponse.desc);
         liff.closeWindow()
       }});  
